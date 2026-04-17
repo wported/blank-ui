@@ -81,4 +81,12 @@
   --bl-z-popover: 1060;
   --bl-z-tooltip: 1070;
   --bl-z-toast: 1080;
+
+    /* Переменные для директив */
+  --bl-ripple-color: rgba(255, 255, 255, 0.5);
+  --bl-ripple-duration: 400ms;
+  --bl-draggable-handle-size: 8px;
+  --bl-draggable-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --bl-lazy-load-placeholder: #f0f0f0;
+  --bl-lazy-load-duration: 0.3s;
 }

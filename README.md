@@ -231,7 +231,107 @@ const cycleSize = () => {
   widthIndex.value = (widthIndex.value + 1) % widths.length
 }
 </script>
+
+#### v-ripple
+
+Adds a ripple effect on click.
+
+```vue
+<template>
+  <BlButton v-ripple variant="primary">Button with ripple</BlButton>
+  <BlButton v-ripple="{ color: 'rgba(255,255,255,0.8)', duration: 600 }" variant="secondary">
+    Custom ripple
+  </BlButton>
+</template>
 ```
+
+#### v-click-outside
+
+Calls a function when clicking outside the element.
+
+```vue
+<template>
+  <div v-click-outside="closeMenu" class="dropdown">
+    <p>Click outside this block to close it</p>
+  </div>
+</template>
+
+<script setup>
+const closeMenu = () => {
+  console.log('Clicked outside!')
+}
+</script>
+```
+
+#### v-debounce
+
+Delays function call until the specified time has passed since the last call.
+
+```vue
+<template>
+  <BlInput 
+    v-debounce:500="handleSearch"
+    placeholder="Search with 500ms delay"
+  />
+</template>
+```
+
+#### v-throttle
+
+Limits function call frequency (no more than once per specified interval).
+
+```vue
+<template>
+  <div v-throttle:200="handleScroll" @scroll="handleScroll">
+    <!-- Scrollable content -->
+  </div>
+</template>
+```
+
+#### v-focus
+
+Automatically sets focus on the element when loaded.
+
+```vue
+<template>
+  <BlInput v-focus placeholder="I'm in focus!" />
+  <BlInput v-focus="{ delay: 1000, select: true }" placeholder="Focus after 1 second" />
+</template>
+```
+
+#### v-copy
+
+Copies the specified text to the clipboard on click.
+
+```vue
+<template>
+  <BlButton v-copy="'Text to copy'" variant="primary">
+    Copy text
+  </BlButton>
+</template>
+```
+
+#### v-draggable
+
+Makes an element draggable.
+
+```vue
+<template>
+  <div v-draggable class="draggable-box">
+    Drag me
+  </div>
+</template>
+```
+
+#### v-lazy-load
+
+Loads images only when they appear in the viewport.
+
+```vue
+<template>
+  <img v-lazy-load="'https://example.com/image.jpg'" alt="Image" />
+</template>
+``````
 
 ### 🎨 Components
 
@@ -556,28 +656,28 @@ const handleClick = () => {
 
 #### v-bl-size
 
-Директива для управления размером и шириной компонентов. Позволяет динамически изменять внешний вид компонентов без использования props.
+Директива для управления размером и шириной компонентов. Позволяет динамически изменять внешний вид компонентов.
 
 ##### Типы размеров
 
-| Значение | Описание           |
-|----------|--------------------|
-| small    | Маленький размер   |
-| medium   | Средний размер (по умолчанию) |
-| large    | Большой размер     |
-| xlarge   | Очень большой размер |
+| Значение | Описание | Высота | Отступы |
+|----------|----------|--------|---------|
+| `small` | Маленький размер | 28px | 4px 8px |
+| `medium` | Средний размер (по умолчанию) | 36px | 8px 16px |
+| `large` | Большой размер | 44px | 12px 24px |
+| `xlarge` | Очень большой размер | 52px | 16px 32px |
 
 ##### Типы ширины
 
-| Значение | Ширина       |
-|----------|--------------|
-| auto     | Автоматическая |
-| full     | 100%         |
-| sm       | 200px        |
-| md       | 300px        |
-| lg       | 400px        |
-| xl       | 500px        |
-| number   | Произвольное число пикселей |
+| Значение | Ширина | Описание |
+|----------|--------|----------|
+| `auto` | auto | Автоматическая (по содержимому) |
+| `full` | 100% | На всю ширину родителя |
+| `sm` | 200px | Маленькая |
+| `md` | 300px | Средняя |
+| `lg` | 400px | Большая |
+| `xl` | 500px | Очень большая |
+| `number` | число px | Кастомная ширина в пикселях |
 
 ##### Базовое использование (только размер)
 
@@ -588,11 +688,8 @@ const handleClick = () => {
   <BlButton v-bl-size="'large'" variant="primary">Большая</BlButton>
   <BlButton v-bl-size="'xlarge'" variant="primary">Очень большая</BlButton>
 </template>
-```
-
-##### Использование с шириной
-
-```vue
+Использование с шириной
+vue
 <template>
   <!-- На всю ширину -->
   <BlInput 
@@ -630,11 +727,8 @@ const options = [
   { label: 'Опция 2', value: '2' }
 ]
 </script>
-```
-
-##### Динамическое изменение размера
-
-```vue
+Динамическое изменение размера
+vue
 <template>
   <div>
     <BlButton 
@@ -646,9 +740,9 @@ const options = [
     </BlButton>
     
     <BlInput 
-      :v-bl-size="{ size: currentSize, width: currentWidth }"
+      :v-bl-size="{ size: currentSize, width: 'auto' }"
       v-model="dynamicText" 
-      :label="`Размер: ${currentSize}, Ширина: ${currentWidth}`"
+      :label="`Размер: ${currentSize}`"
       placeholder="Динамический размер"
     />
   </div>
@@ -656,24 +750,108 @@ const options = [
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import type { BlSize, BlWidth } from '@wported/blank-ui'
+import type { BlSize } from '@wported/blank-ui'
 
 const sizes: BlSize[] = ['small', 'medium', 'large', 'xlarge']
 const sizeIndex = ref(0)
 const currentSize = computed(() => sizes[sizeIndex.value])
-
-const widths: BlWidth[] = ['sm', 'md', 'lg', 'xl', 'full']
-const widthIndex = ref(0)
-const currentWidth = computed(() => widths[widthIndex.value])
-
 const dynamicText = ref('')
 
 const cycleSize = () => {
   sizeIndex.value = (sizeIndex.value + 1) % sizes.length
-  widthIndex.value = (widthIndex.value + 1) % widths.length
 }
 </script>
-```
+Доступные компоненты
+Директива v-bl-size работает со следующими компонентами:
+
+BlButton - кнопки
+
+BlInput - поля ввода
+
+BlSelect - выпадающие списки
+
+BlTextarea - текстовые области
+
+Примечание: При использовании директивы с полями ввода и селектами рекомендуется указывать ширину width: 'auto' для автоматического размера по содержимому, или задавать фиксированную ширину при необходимости.
+
+Другие директивы
+v-ripple
+Добавляет волновой эффект при клике на элемент.
+
+vue
+<template>
+  <BlButton v-ripple variant="primary">Кнопка с ripple</BlButton>
+  <BlButton v-ripple="{ color: 'rgba(255,255,255,0.8)', duration: 600 }" variant="secondary">
+    Кастомный ripple
+  </BlButton>
+</template>
+v-click-outside
+Вызывает функцию при клике вне элемента.
+
+vue
+<template>
+  <div v-click-outside="closeMenu" class="dropdown">
+    <p>Клик вне этого блока закроет его</p>
+  </div>
+</template>
+
+<script setup>
+const closeMenu = () => {
+  console.log('Клик снаружи!')
+}
+</script>
+v-debounce
+Откладывает вызов функции до тех пор, пока не пройдет указанное время после последнего вызова.
+
+vue
+<template>
+  <BlInput 
+    v-debounce:500="handleSearch"
+    placeholder="Поиск с задержкой 500ms"
+  />
+</template>
+v-throttle
+Ограничивает частоту вызова функции (не чаще 1 раза за указанный интервал).
+
+vue
+<template>
+  <div v-throttle:200="handleScroll" @scroll="handleScroll">
+    <!-- Содержимое с прокруткой -->
+  </div>
+</template>
+v-focus
+Автоматически устанавливает фокус на элемент при загрузке.
+
+vue
+<template>
+  <BlInput v-focus placeholder="Я в фокусе!" />
+  <BlInput v-focus="{ delay: 1000, select: true }" placeholder="Фокус через 1 секунду" />
+</template>
+v-copy
+Копирует указанный текст в буфер обмена при клике.
+
+vue
+<template>
+  <BlButton v-copy="'Текст для копирования'" variant="primary">
+    Скопировать текст
+  </BlButton>
+</template>
+v-draggable
+Делает элемент перетаскиваемым.
+
+vue
+<template>
+  <div v-draggable class="draggable-box">
+    Перетащи меня
+  </div>
+</template>
+v-lazy-load
+Загружает изображения только при появлении в зоне видимости.
+
+vue
+<template>
+  <img v-lazy-load="'https://example.com/image.jpg'" alt="Image" />
+</template>
 
 ### 🎨 Компоненты
 

@@ -1,7 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-  { path: '/', redirect: '/forms/button' },
+  { path: '/', redirect: '/directives/bl-size' },
+  
+  // ========== ДИРЕКТИВЫ ==========
+  { path: '/directives/bl-size', component: () => import('../views/directives/BlSizeDemo.vue') },
+  { path: '/directives/ripple', component: () => import('../views/directives/RippleDemo.vue') },
+  { path: '/directives/click-outside', component: () => import('../views/directives/ClickOutsideDemo.vue') },
+  { path: '/directives/debounce', component: () => import('../views/directives/DebounceDemo.vue') },
+  { path: '/directives/throttle', component: () => import('../views/directives/ThrottleDemo.vue') },
+  { path: '/directives/draggable', component: () => import('../views/directives/DraggableDemo.vue') },
+  { path: '/directives/focus', component: () => import('../views/directives/FocusDemo.vue') },
+  { path: '/directives/copy', component: () => import('../views/directives/CopyDemo.vue') },
+  { path: '/directives/lazy-load', component: () => import('../views/directives/LazyLoadDemo.vue') },
   
   // ========== ФОРМЫ ==========
   { path: '/forms/button', component: () => import('../views/components/forms/ButtonDemo.vue') },

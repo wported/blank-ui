@@ -11,21 +11,31 @@
           </div>
         </div>
       </div>
-      
+
       <nav class="demo-nav">
-        <div v-for="group in filteredMenu" :key="group.name" class="demo-nav-group">
-          <div 
-            class="demo-nav-group__title" 
+        <div
+          v-for="group in filteredMenu"
+          :key="group.name"
+          class="demo-nav-group"
+        >
+          <div
+            class="demo-nav-group__title"
             @click="toggleGroup(group.name)"
           >
             <span class="demo-nav-group__title-text">{{ group.title }}</span>
-            <span class="demo-nav-group__arrow" :class="{ 'rotated': expandedGroups.includes(group.name) }">
+            <span
+              class="demo-nav-group__arrow"
+              :class="{ 'rotated': expandedGroups.includes(group.name) }"
+            >
               ▼
             </span>
           </div>
-          
+
           <transition name="slide">
-            <div v-show="expandedGroups.includes(group.name)" class="demo-nav-group__items">
+            <div
+              v-show="expandedGroups.includes(group.name)"
+              class="demo-nav-group__items"
+            >
               <router-link
                 v-for="item in group.items"
                 :key="item.path"
@@ -34,16 +44,22 @@
                 active-class="demo-nav-link--active"
               >
                 {{ item.name }}
-                <div v-if="item.isNew" class="demo-nav-link__badge">New</div>
+                <div
+                  v-if="item.isNew"
+                  class="demo-nav-link__badge"
+                >New</div>
               </router-link>
             </div>
           </transition>
         </div>
       </nav>
-      
+
       <div class="demo-sidebar__footer">
         <div class="demo-theme">
-          <button class="demo-theme__btn" @click="toggleTheme">
+          <button
+            class="demo-theme__btn"
+            @click="toggleTheme"
+          >
             <span>{{ isDark ? '🌙 Dark' : '☀️ Light' }}</span>
           </button>
         </div>
@@ -52,7 +68,7 @@
         </div>
       </div>
     </aside>
-    
+
     <!-- Main Content -->
     <main class="demo-main">
       <div class="demo-header">
@@ -65,19 +81,19 @@
             </span>
           </div>
         </div>
-        
+
         <div class="demo-header__right">
           <div class="demo-search">
             <span class="demo-search__icon">🔍</span>
-            <input 
-              v-model="searchQuery" 
-              type="text" 
+            <input
+              v-model="searchQuery"
+              type="text"
               placeholder="Search components..."
               class="demo-search__input"
             />
           </div>
-          <a 
-            href="https://github.com/wported/blank-ui" 
+          <a
+            href="https://github.com/wported/blank-ui"
             target="_blank"
             class="demo-github"
           >
@@ -86,10 +102,13 @@
           </a>
         </div>
       </div>
-      
+
       <div class="demo-content">
         <router-view v-slot="{ Component }">
-          <transition name="page" mode="out-in">
+          <transition
+            name="page"
+            mode="out-in"
+          >
             <component :is="Component" />
           </transition>
         </router-view>
@@ -98,7 +117,10 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useTheme } from '../../src/composables/useTheme'
@@ -112,6 +134,21 @@ const expandedGroups = ref<string[]>(['forms', 'data', 'navigation', 'feedback']
 
 // Меню
 const menu = [
+  {
+    name: 'directives',
+    title: '🎯 Директивы',
+    items: [
+      { name: '📏 v-bl-size', path: '/directives/bl-size', isNew: true },
+      { name: '🌊 v-ripple', path: '/directives/ripple', isNew: true },
+      { name: '👆 v-click-outside', path: '/directives/click-outside', isNew: true },
+      { name: '⏱️ v-debounce', path: '/directives/debounce', isNew: true },
+      { name: '⚡ v-throttle', path: '/directives/throttle', isNew: true },
+      { name: '🖱️ v-draggable', path: '/directives/draggable', isNew: true },
+      { name: '🎯 v-focus', path: '/directives/focus', isNew: true },
+      { name: '📋 v-copy', path: '/directives/copy', isNew: true },
+      { name: '🖼️ v-lazy-load', path: '/directives/lazy-load', isNew: true }
+    ]
+  },
   {
     name: 'forms',
     title: 'Формы',
@@ -183,12 +220,12 @@ const menu = [
 // Фильтрация меню по поиску
 const filteredMenu = computed(() => {
   if (!searchQuery.value) return menu
-  
+
   const query = searchQuery.value.toLowerCase()
   return menu
     .map(group => ({
       ...group,
-      items: group.items.filter(item => 
+      items: group.items.filter(item =>
         item.name.toLowerCase().includes(query)
       )
     }))
@@ -222,7 +259,7 @@ watch(expandedGroups, (val) => {
 
 onMounted(() => {
   initTheme()
-  
+
   // Восстанавливаем состояние
   const savedGroups = localStorage.getItem('demo-expanded-groups')
   if (savedGroups !== null) {
@@ -285,8 +322,15 @@ onMounted(() => {
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .demo-logo__text h2 {
@@ -577,31 +621,31 @@ onMounted(() => {
     transition: transform 0.3s ease;
     z-index: 200;
   }
-  
+
   .demo-sidebar.open {
     transform: translateX(0);
   }
-  
+
   .demo-main {
     margin-left: 0;
   }
-  
+
   .demo-search__input {
     width: 180px;
   }
-  
+
   .demo-search__input:focus {
     width: 200px;
   }
-  
+
   .demo-github span:last-child {
     display: none;
   }
-  
+
   .demo-content {
     padding: 20px;
   }
-  
+
   .demo-header {
     padding: 12px 20px;
   }
