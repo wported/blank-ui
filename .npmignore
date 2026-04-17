@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Development files
+src/
+vite.config.ts
+tsconfig.json
+tsconfig.build.json
+.vscode/
+.git/
+.gitignore
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db

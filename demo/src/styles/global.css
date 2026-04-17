@@ -1,0 +1,59 @@
+/* Глобальные анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Стили для скроллбара */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bl-bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bl-color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bl-color-primary-hover);
+}
+
+/* Выделение текста */
+::selection {
+  background: var(--bl-color-primary);
+  color: white;
+}
+
+/* Фокус на элементах */
+*:focus-visible {
+  outline: 2px solid var(--bl-color-primary);
+  outline-offset: 2px;
+}
+
+/* Плавные переходы */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}

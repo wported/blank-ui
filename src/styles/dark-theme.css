@@ -1,0 +1,24 @@
+[data-theme="dark"] {
+  --bl-bg-primary: #1f2937;
+  --bl-bg-secondary: #111827;
+  --bl-bg-tertiary: #374151;
+  --bl-bg-overlay: rgba(0, 0, 0, 0.8);
+  
+  --bl-text-primary: #f9fafb;
+  --bl-text-secondary: #9ca3af;
+  --bl-text-disabled: #6b7280;
+  --bl-text-inverse: #111827;
+  
+  --bl-border-color: #374151;
+  --bl-border-color-light: #4b5563;
+  --bl-border-color-dark: #1f2937;
+  
+  --bl-shadow-color: rgba(0, 0, 0, 0.3);
+  --bl-shadow-color-lg: rgba(0, 0, 0, 0.4);
+  
+  /* Темные акценты для компонентов */
+  --bl-color-primary: #60a5fa;
+  --bl-color-primary-hover: #3b82f6;
+  --bl-color-secondary: #9ca3af;
+  --bl-color-secondary-hover: #6b7280;
+}

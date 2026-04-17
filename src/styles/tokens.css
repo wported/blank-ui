@@ -1,0 +1,84 @@
+:root {
+  /* Цвета */
+  --bl-color-primary: #3b82f6;
+  --bl-color-primary-hover: #2563eb;
+  --bl-color-primary-active: #1d4ed8;
+  --bl-color-secondary: #6b7280;
+  --bl-color-secondary-hover: #4b5563;
+  --bl-color-secondary-active: #374151;
+  --bl-color-success: #10b981;
+  --bl-color-success-hover: #059669;
+  --bl-color-warning: #f59e0b;
+  --bl-color-warning-hover: #d97706;
+  --bl-color-danger: #ef4444;
+  --bl-color-danger-hover: #dc2626;
+  --bl-color-info: #3b82f6;
+  
+  /* Фоновые цвета */
+  --bl-bg-primary: #ffffff;
+  --bl-bg-secondary: #f3f4f6;
+  --bl-bg-tertiary: #e5e7eb;
+  
+  /* Текст */
+  --bl-text-primary: #111827;
+  --bl-text-secondary: #6b7280;
+  --bl-text-disabled: #9ca3af;
+  
+  /* Границы */
+  --bl-border-color: #e5e7eb;
+  --bl-border-radius-sm: 4px;
+  --bl-border-radius-md: 8px;
+  --bl-border-radius-lg: 12px;
+  --bl-border-radius-xl: 16px;
+  
+  /* Тени */
+  --bl-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --bl-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --bl-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  
+  /* Размеры */
+  --bl-font-size-xs: 12px;
+  --bl-font-size-sm: 14px;
+  --bl-font-size-md: 16px;
+  --bl-font-size-lg: 18px;
+  --bl-font-size-xl: 20px;
+  
+  /* Отступы */
+  --bl-spacing-xs: 4px;
+  --bl-spacing-sm: 8px;
+  --bl-spacing-md: 16px;
+  --bl-spacing-lg: 20px;
+  --bl-spacing-xl: 24px;
+  
+  /* Анимации */
+  --bl-transition-fast: 150ms ease;
+  --bl-transition-base: 250ms ease;
+  --bl-transition-slow: 350ms ease;
+  
+  /* Компонентные переменные (будут переопределены директивой) */
+  --bl-component-padding: var(--bl-spacing-sm) var(--bl-spacing-md);
+  --bl-component-font-size: var(--bl-font-size-md);
+  --bl-component-gap: var(--bl-spacing-sm);
+  --bl-component-border-radius: var(--bl-border-radius-md);
+
+  /* Дополнительные переменные для новых компонентов */
+  --bl-transition-duration: 0.3s;
+  --bl-overlay-opacity: 0.5;
+  --bl-focus-ring: 0 0 0 2px var(--bl-color-primary-light);
+  --bl-disabled-opacity: 0.6;
+  
+  /* Анимации */
+  --bl-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --bl-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --bl-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Z-index слои */
+  --bl-z-dropdown: 1000;
+  --bl-z-sticky: 1020;
+  --bl-z-fixed: 1030;
+  --bl-z-modal-backdrop: 1040;
+  --bl-z-modal: 1050;
+  --bl-z-popover: 1060;
+  --bl-z-tooltip: 1070;
+  --bl-z-toast: 1080;
+}

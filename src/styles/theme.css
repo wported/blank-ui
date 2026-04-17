@@ -1,0 +1,98 @@
+@import './tokens.css';
+
+/* Светлая тема (по умолчанию) */
+:root,
+[data-theme="light"] {
+  --bl-bg-primary: #ffffff;
+  --bl-bg-secondary: #f9fafb;
+  --bl-bg-tertiary: #f3f4f6;
+  --bl-bg-overlay: rgba(0, 0, 0, 0.5);
+  
+  --bl-text-primary: #111827;
+  --bl-text-secondary: #6b7280;
+  --bl-text-disabled: #9ca3af;
+  --bl-text-inverse: #ffffff;
+  
+  --bl-border-color: #e5e7eb;
+  --bl-border-color-light: #f3f4f6;
+  --bl-border-color-dark: #d1d5db;
+  
+  --bl-shadow-color: rgba(0, 0, 0, 0.1);
+  --bl-shadow-color-lg: rgba(0, 0, 0, 0.15);
+}
+
+/* Базовая стилизация */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  color: var(--bl-text-primary);
+  background-color: var(--bl-bg-primary);
+}
+
+/* Классы для ширины */
+.bl-width-auto {
+  width: auto !important;
+}
+
+.bl-width-full {
+  width: 100% !important;
+}
+
+.bl-width-sm {
+  width: 200px !important;
+}
+
+.bl-width-md {
+  width: 300px !important;
+}
+
+.bl-width-lg {
+  width: 400px !important;
+}
+
+.bl-width-xl {
+  width: 500px !important;
+}
+
+.bl-width-custom {
+  width: var(--bl-custom-width, auto);
+}
+
+/* Классы для размера */
+.bl-size-small {
+  --bl-component-padding: var(--bl-spacing-xs) var(--bl-spacing-sm);
+  --bl-component-font-size: var(--bl-font-size-xs);
+  --bl-component-gap: var(--bl-spacing-xs);
+  --bl-component-border-radius: var(--bl-border-radius-sm);
+  --bl-component-height: 28px;
+}
+
+.bl-size-medium {
+  --bl-component-padding: var(--bl-spacing-sm) var(--bl-spacing-md);
+  --bl-component-font-size: var(--bl-font-size-md);
+  --bl-component-gap: var(--bl-spacing-sm);
+  --bl-component-border-radius: var(--bl-border-radius-md);
+  --bl-component-height: 36px;
+}
+
+.bl-size-large {
+  --bl-component-padding: var(--bl-spacing-md) var(--bl-spacing-lg);
+  --bl-component-font-size: var(--bl-font-size-lg);
+  --bl-component-gap: var(--bl-spacing-md);
+  --bl-component-border-radius: var(--bl-border-radius-lg);
+  --bl-component-height: 44px;
+}
+
+.bl-size-xlarge {
+  --bl-component-padding: var(--bl-spacing-lg) var(--bl-spacing-xl);
+  --bl-component-font-size: var(--bl-font-size-xl);
+  --bl-component-gap: var(--bl-spacing-lg);
+  --bl-component-border-radius: var(--bl-border-radius-xl);
+  --bl-component-height: 52px;
+}

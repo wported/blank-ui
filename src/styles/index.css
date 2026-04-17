@@ -1,0 +1,44 @@
+@import './theme.css';
+@import './dark-theme.css';
+
+/* Глобальные стили */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  color: var(--bl-text-primary);
+  background-color: var(--bl-bg-primary);
+  transition: background-color var(--bl-transition-base), color var(--bl-transition-base);
+}
+
+/* Утилиты */
+.bl-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--bl-spacing-lg);
+}
+
+.bl-text-center {
+  text-align: center;
+}
+
+.bl-mt-1 { margin-top: var(--bl-spacing-xs); }
+.bl-mt-2 { margin-top: var(--bl-spacing-sm); }
+.bl-mt-3 { margin-top: var(--bl-spacing-md); }
+.bl-mt-4 { margin-top: var(--bl-spacing-lg); }
+.bl-mt-5 { margin-top: var(--bl-spacing-xl); }
+
+.bl-mb-1 { margin-bottom: var(--bl-spacing-xs); }
+.bl-mb-2 { margin-bottom: var(--bl-spacing-sm); }
+.bl-mb-3 { margin-bottom: var(--bl-spacing-md); }
+.bl-mb-4 { margin-bottom: var(--bl-spacing-lg); }
+.bl-mb-5 { margin-bottom: var(--bl-spacing-xl); }

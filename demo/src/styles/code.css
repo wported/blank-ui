@@ -1,0 +1,36 @@
+/* Стили для подсветки кода */
+.code-viewer__code pre {
+  background-color: #1e1e1e !important;
+  color: #d4d4d4 !important;
+}
+
+/* Темная тема для кода */
+[data-theme="dark"] .code-viewer__code pre {
+  background-color: #0d1117 !important;
+}
+
+/* Светлая тема для кода */
+[data-theme="light"] .code-viewer__code pre {
+  background-color: #f6f8fa !important;
+  color: #24292e !important;
+}
+
+[data-theme="light"] .code-tag {
+  color: #c678dd !important;
+}
+
+[data-theme="light"] .code-directive {
+  color: #e5c07b !important;
+}
+
+[data-theme="light"] .code-boolean {
+  color: #d19a66 !important;
+}
+
+[data-theme="light"] .code-string {
+  color: #98c379 !important;
+}
+
+[data-theme="light"] .code-number {
+  color: #d19a66 !important;
+}
